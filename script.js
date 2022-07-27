@@ -13,3 +13,11 @@ const gameBoard = (() => {
   return {addToBoard, clearBoard, getBoard};
 })();
 
+const PlayerFactory = (name) => {
+  let score = 0;
+  const getName = () => {return name};
+  const getScore = () => {return score};
+  const setScore= (val) => score = val;
+  return {getScore, setScore, getName};
+}; 
+
