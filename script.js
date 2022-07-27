@@ -21,3 +21,21 @@ const PlayerFactory = (name) => {
   return {getScore, setScore, getName};
 }; 
 
+const displayController = (() => {
+  divs = Array.from(document.querySelectorAll('.board__cell'));
+  let x = 0;
+  let y = 0;
+  const refresh = () => {divs.forEach (function(element) {
+    element.innerHTML = gameBoard.getBoard()[x][y];
+    if (y == 2) {
+      y = 0;
+      x += 1;
+    } else {
+      y += 1;
+    };
+  });
+  x = 0;
+  y = 0;
+  };
+  return {refresh};
+})();
