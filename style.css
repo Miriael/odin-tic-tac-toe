@@ -1,0 +1,25 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 100vh
+}
+
+#board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 600px;
+  height: 600px;
+  gap: 1px;
+}
+
+.board__cell {
+  width: 200px;
+  height: 200px;
+  background-color: grey;
+}
