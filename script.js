@@ -34,9 +34,6 @@ const game = (() => {
   };
   const evaluateBoard = () => {
     turnCounter += 1;
-    if (turnCounter === 9) {
-      endGame();
-    }
     let winner = ''
     let rowpieces = []
     let columnpieces = []
@@ -61,14 +58,18 @@ const game = (() => {
       endGame(winner);
       };
     };
-    if (gameBoard.getBoard()[0][0] === gameBoard.getBoard()[1][1] && gameBoard.getBoard()[0][0] === gameBoard.getBoard()[2][2] && gameBoard.getBoard()[0][0] !== ' ') {
+    if (gameBoard.getBoard()[0][0] === gameBoard.getBoard()[1][1] && gameBoard.getBoard()[0][0] === gameBoard.getBoard()[2][2] && gameBoard.getBoard()[1][1] !== ' ') {
       winner = gameBoard.getBoard()[0][0];
       endGame(winner);
     };
-    if (gameBoard.getBoard()[0][2] === gameBoard.getBoard()[1][1] && gameBoard.getBoard()[0][2] === gameBoard.getBoard()[2][0] && gameBoard.getBoard()[0][2] !== ' ') {
+    if (gameBoard.getBoard()[0][2] === gameBoard.getBoard()[1][1] && gameBoard.getBoard()[0][2] === gameBoard.getBoard()[2][0] && gameBoard.getBoard()[1][1] !== ' ') {
       winner = gameBoard.getBoard()[0][2];
       endGame(winner);
-    }};
+    };
+    if (turnCounter === 9) {
+      endGame();
+    };
+  }
   const startGame = () => {
     playerOne = PlayerFactory('Player 1', 'X');
     playerTwo = PlayerFactory('Player 2', 'O');
